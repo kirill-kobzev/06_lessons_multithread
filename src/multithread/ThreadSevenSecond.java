@@ -1,22 +1,24 @@
 package multithread;
 
-public class ThreadFiveSecond extends Thread{
+public class ThreadSevenSecond  extends Thread{
 
     Object monitor;
 
-    public ThreadFiveSecond(Object monitor) {
+    public ThreadSevenSecond(Object monitor) {
         this.monitor = monitor;
     }
 
     public void run(){
+
         synchronized (monitor){
-        int countThreadFiveSecond = 1;
+            int countThreadSevenSecond = 1;
             while (true) {
-                if(countThreadFiveSecond == 5){
-                    System.out.println("Thread two: 5 second");
-                    countThreadFiveSecond = 0;
+                if(countThreadSevenSecond == 7){
+                    System.out.println("Thread three: 7 second");
+                    countThreadSevenSecond = 0;
                 }
-                countThreadFiveSecond++;
+                countThreadSevenSecond++;
+                monitor.notify();
                 try {
                     monitor.wait();
                 } catch (InterruptedException e) {
@@ -25,4 +27,5 @@ public class ThreadFiveSecond extends Thread{
             }
         }
     }
+
 }
