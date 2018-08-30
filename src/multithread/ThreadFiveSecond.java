@@ -14,7 +14,7 @@ public class ThreadFiveSecond extends Thread{
                 while (true) {
                     System.out.println("Thread2");
                     try {
-                        wait();
+                        monitor.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

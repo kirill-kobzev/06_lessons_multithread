@@ -17,7 +17,7 @@ public class ThreadTimer extends Thread {
                     Thread.sleep(1000);
                     System.out.println(time);
                     time++;
-                    notifyAll();
+                    monitor.notifyAll();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
